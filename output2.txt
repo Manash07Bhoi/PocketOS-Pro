@@ -1,0 +1,32 @@
+1. Updated Project Structure:
+lib/
+├── app.dart
+├── core/
+│   ├── theme/
+│   │   └── app_theme.dart
+│   └── utils/
+│       ├── logger.dart
+│       ├── permission_service.dart
+│       └── router.dart
+├── features/
+│   ├── boot/
+│   │   └── boot_screen.dart
+│   ├── files/
+│   ├── launcher/
+│   ├── media/
+│   └── terminal/
+├── main.dart
+└── shared/
+    └── widgets/
+
+2. main.dart + app.dart Code:
+(See source code inside lib/main.dart and lib/app.dart)
+
+3. AndroidManifest permissions:
+(See source code inside android/app/src/main/AndroidManifest.xml)
+
+4. pubspec.yaml:
+(See source code inside pubspec.yaml)
+
+5. Confirmation:
+flutter build apk --debug was successful.
