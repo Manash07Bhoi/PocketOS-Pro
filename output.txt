@@ -1,0 +1,33 @@
+1. Project Structure:
+lib/
+├── app.dart
+├── core/
+│   ├── theme/
+│   │   └── app_theme.dart
+│   └── utils/
+│       └── .gitkeep
+├── features/
+│   ├── boot/
+│   │   └── boot_screen.dart
+│   ├── files/
+│   │   └── .gitkeep
+│   ├── launcher/
+│   │   └── .gitkeep
+│   ├── media/
+│   │   └── .gitkeep
+│   └── terminal/
+│       └── .gitkeep
+├── main.dart
+└── shared/
+    └── widgets/
+        └── .gitkeep
+
+2. pubspec.yaml Dependencies List:
+Dependencies: flutter_bloc, equatable, hive, hive_flutter, path_provider, permission_handler, google_fonts
+Dev Dependencies: build_runner, hive_generator
+
+3. main.dart Content:
+(See source code inside lib/main.dart)
+
+4. Confirmation:
+flutter build apk --debug was successful.
