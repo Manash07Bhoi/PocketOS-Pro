@@ -1,14 +1,26 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'app.dart';
+import 'core/utils/logger.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Hive
-  await Hive.initFlutter();
+    // Lock portrait orientation
+    await SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
 
-  // Prepare for future boxes (no models yet)
+    // Initialize Hive
+    await Hive.initFlutter();
 
-  runApp(const PocketOSApp());
+    // Prepare for future boxes (no models yet)
+
+    runApp(const PocketOSApp());
+  }, (error, stack) {
+    log('Global error: $error\n$stack');
+  });
 }
