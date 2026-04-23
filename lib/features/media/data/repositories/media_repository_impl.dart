@@ -5,8 +5,11 @@ import '../../domain/repositories/media_repository.dart';
 class MediaRepositoryImpl implements MediaRepository {
   @override Stream<MediaFile> scanStream(NmapFilter filter) async* {
     RequestType requestType = RequestType.common;
-    if (filter.photosOnly && !filter.videosOnly && !filter.allMedia) requestType = RequestType.image;
-    else if (filter.videosOnly && !filter.photosOnly && !filter.allMedia) requestType = RequestType.video;
+    if (filter.photosOnly && !filter.videosOnly && !filter.allMedia) {
+      requestType = RequestType.image;
+    } else if (filter.videosOnly && !filter.photosOnly && !filter.allMedia) {
+      requestType = RequestType.video;
+    }
     final List<AssetPathEntity> albums = await PhotoManager.getAssetPathList(type: requestType, onlyAll: true);
     if (albums.isEmpty) return;
     final AssetPathEntity recentAlbum = albums.first;

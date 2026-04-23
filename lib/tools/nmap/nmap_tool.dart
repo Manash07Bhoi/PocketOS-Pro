@@ -25,8 +25,11 @@ class NmapTool extends BaseTool {
   @override String get name => 'nmap';
   @override String get version => '1.0.0';
   @override String get description => 'Media scanner — scan photos/videos by date, size, type';
-  @override String get helpText => '''nmap $version - Media Scanner...'''; // shortened for brevity
-  @override List<String> get supportedFlags => ['-p', '--photos', '-v', '--videos', '-a', '--all', '-d', '--date', '--year', '--size', '--output'];
+  @override String get helpText => '''nmap $version - Media Scanner
+Usage: nmap [flags]
+Flags: -p, --photos, -v, --videos, -a, --all, -d, --date, --year, --output
+''';
+  @override List<String> get supportedFlags => ['-p', '--photos', '-v', '--videos', '-a', '--all', '-d', '--date', '--year', '--output']; // --size and --dup are Phase 3
 
   @override String? validateArgs(ParsedCommand command) {
     if (!command.flags.containsKey('-p') && !command.flags.containsKey('--photos') && !command.flags.containsKey('-v') && !command.flags.containsKey('--videos') && !command.flags.containsKey('-a') && !command.flags.containsKey('--all')) {

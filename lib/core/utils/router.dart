@@ -4,9 +4,7 @@ import '../../features/launcher/presentation/launcher_screen.dart';
 import '../../features/terminal/presentation/terminal_screen.dart';
 import '../../features/files/presentation/files_screen.dart';
 import '../../features/media/presentation/media_screen.dart';
-import '../../features/stats/presentation/stats_screen.dart';
 import '../../features/boot/presentation/permission_screen.dart';
-import '../../features/settings/presentation/settings_screen.dart';
 
 class AppRouter {
   static const String kBootRoute = '/boot';
@@ -25,9 +23,10 @@ class AppRouter {
       case kTerminalRoute: return MaterialPageRoute(builder: (_) => const TerminalScreen());
       case kFilesRoute: return MaterialPageRoute(builder: (_) => const FilesScreen());
       case kMediaRoute: return MaterialPageRoute(builder: (_) => const MediaScreen());
-      case kStatsRoute: return MaterialPageRoute(builder: (_) => const StatsScreen());
       case kPermissionRoute: return MaterialPageRoute(builder: (_) => const PermissionScreen());
-      case kSettingsRoute: return MaterialPageRoute(builder: (_) => const SettingsScreen());
+      // Stats and Settings are Phase 3 features
+      // case kStatsRoute: return MaterialPageRoute(builder: (_) => const StatsScreen());
+      // case kSettingsRoute: return MaterialPageRoute(builder: (_) => const SettingsScreen());
       default: return MaterialPageRoute(builder: (_) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))));
     }
   }
