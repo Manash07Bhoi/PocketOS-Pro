@@ -30,11 +30,12 @@ class _BootScreenState extends State<BootScreen> {
             listener: (context, state) async {
               if (state is BootComplete) {
                 final hasPerm = await PermissionService.hasMediaPermission();
-                if (!mounted) return;
-                if (hasPerm) {
-                  Navigator.of(context).pushReplacementNamed('/launcher');
-                } else {
-                  Navigator.of(context).pushReplacementNamed('/permission');
+                if (context.mounted) {
+                  if (hasPerm) {
+                    Navigator.of(context).pushReplacementNamed('/launcher');
+                  } else {
+                    Navigator.of(context).pushReplacementNamed('/permission');
+                  }
                 }
               }
             },

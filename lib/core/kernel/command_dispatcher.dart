@@ -82,13 +82,14 @@ class CommandDispatcher {
           switch (app) {
             case 'media': route = '/media'; break;
             case 'files': route = '/files'; break;
-            case 'stats': route = '/stats'; break;
-            case 'settings': route = '/settings'; break;
+            // Phase 3 Features:
+            // case 'stats': route = '/stats'; break;
+            // case 'settings': route = '/settings'; break;
           }
           if (route.isNotEmpty) {
             SystemEventBus.instance.emit(NavigationEvent(route));
           } else {
-            _terminalBloc.add(TerminalOutputReceived(ToolOutputLine('App not found: $app', type: OutputType.error)));
+            _terminalBloc.add(TerminalOutputReceived(ToolOutputLine('App not found or not available in Phase 2: $app', type: OutputType.error)));
           }
         }
         break;
